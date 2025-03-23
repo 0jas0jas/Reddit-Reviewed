@@ -3,13 +3,32 @@
   "name": "Reddit Reviewed",
   "version": "1.0",
   "description": "Adds doomscrolling features to reddit. You can scroll nicer and upvote or downvote with a single button.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.reddit.com/"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "commands": {
+    "scroll_one_post": {
+      "suggested_key": {
+        "default": "Alt+S",
+        "mac": "Command+S"
+      },
+      "description": "Scroll down one post"
+    }
+  },
   "content_scripts": [
     {
       "matches": [
-        "*://*.mozilla.org/*"
-      ],
-      "js": [
-        "app.js"
+        "*://www.reddit.com/*"
       ]
     }
   ]
